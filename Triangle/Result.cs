@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Triangle
 {
-    class Result
+    public class Result
     {
 
         /*
