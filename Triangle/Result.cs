@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Triangle
+﻿namespace Triangle
 {
     public class Result
     {
-
+        public const string ISOSCELES = "Isosceles";
+        public const string EQUILATERAL = "Equilateral";
+        public const string NONE_OF_THESE = "None Of These";
+       
         /*
          * Complete the 'triangleType' function below.
          *
@@ -22,18 +19,23 @@ namespace Triangle
             foreach (var t in triangleToy)
             {
                 var edges = t.Split(' ');
+                var triangle = new Triangle(int.Parse(edges[0]), int.Parse(edges[1]), int.Parse(edges[2]));
+                var triangleType = triangle.GetTriangleType();
 
-                var obj = new Triangle(int.Parse(edges[0]), int.Parse(edges[1]), int.Parse(edges[2]));
-                
-                var type = obj.GetTriangleType();
-
-                ret.Add(type.ToString());
-
+                switch (triangleType)
+                {
+                    case TriangleType.Equilateral:
+                        ret.Add(EQUILATERAL);
+                        break;
+                    case TriangleType.Isosceles:
+                        ret.Add(ISOSCELES);
+                        break;
+                    case TriangleType.NoneOfThese:
+                        ret.Add(NONE_OF_THESE);
+                        break;
+                }
             }
             return ret;
-
         }
-
     }
-
 }
